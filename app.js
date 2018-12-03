@@ -21,7 +21,7 @@ $form.addEventListener('submit', async(event) => {
   const form = new FormData($form)
   //console.log(form.get('id'));
   const id = form.get('id') - 1
-  const pokemon = await getPokemon(id)
+  const pokemon = await getPokemon(id + 1)
   console.log(pokemon);
   const pokemonSprite = pokemon.sprites.front_default
   const image = new Image()
@@ -62,7 +62,7 @@ $form.addEventListener('submit', async(event) => {
 })
 
 async function getPokemon(id) {
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id+1}/`)
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
   const pokemon = await response.json()
   return pokemon
 }
